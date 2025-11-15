@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Central da Seleção - Notícia</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div id="conteudo">
+  <header class="main-header">
+    <div class="left">
+      <div class="menu-container">
+        <button class="menu-toggle">&#9776;</button>
+        <button id="toggle-theme" aria-label="Alternar tema">🌙</button>
+        <nav class="dropdown-menu" id="dropdownMenu">
+          <a href="noticias.html">Notícias</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="escalacao.html">Escalação</a>
+          <a href="trofeus.html">Troféus</a>
+        </nav>
+      </div>
+    </div>
+    <div class="center"><h1 class="logo">Central da <span>Seleção</span></h1></div>
+    <div class="right" id="usuario-logado"></div>
+  </header>
+
+  <main>
+    <div class="box-noticia">
+      <img src="fotos/noticia9.avif" alt="Imagem da notícia">
+      <h2>Bremer, da Juventus, sofre lesão no joelho e encara nova cirurgia</h2>
+      <p>
+        Zagueiro que disputou a Copa do Mundo de 2022 com a seleção brasileira enfrenta novo problema físico e deve desfalcar o time italiano por no mínimo um mês
+
+        A Juventus informou nesta segunda-feira que o zagueiro Bremer sofreu uma ruptura do menisco medial no joelho esquerdo. Com passagem pela seleção brasileira, o defensor será submetido a uma cirurgia nas próximas horas.
+      </p>
+    </div>
+  </main>
+
+  <footer>Todos os direitos reservados © 2025 Central da Seleção</footer>
+</div>
+
+
+<script>
+
+// MENU
+menuToggle.addEventListener('click', () => dropdownMenu.classList.toggle('show-menu'));
+document.addEventListener('click', e => { if(!e.target.closest('.menu-container')) dropdownMenu.classList.remove('show-menu'); });
+
+// TEMA
+const savedTheme = localStorage.getItem("theme");
+if(savedTheme === "dark") { body.classList.add("dark-mode"); themeButton.textContent = "☀️"; }
+themeButton.addEventListener("click", () => {
+  const isDark = body.classList.toggle("dark-mode");
+  themeButton.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+</script>
+</body>
+</html>

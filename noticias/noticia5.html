@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Central da Seleção - Notícia</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div id="conteudo">
+  <header class="main-header">
+    <div class="left">
+      <div class="menu-container">
+        <button class="menu-toggle">&#9776;</button>
+        <button id="toggle-theme" aria-label="Alternar tema">🌙</button>
+        <nav class="dropdown-menu" id="dropdownMenu">
+          <a href="noticias.html">Notícias</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="escalacao.html">Escalação</a>
+          <a href="trofeus.html">Troféus</a>
+        </nav>
+      </div>
+    </div>
+    <div class="center"><h1 class="logo">Central da <span>Seleção</span></h1></div>
+    <div class="right" id="usuario-logado"></div>
+  </header>
+
+  <main>
+    <div class="box-noticia">
+      <img src="fotos/noticia5.avif" alt="Imagem da notícia">
+      <h2>Fabrício Bruno se desculpa por erro em derrota da Seleção: "Peço que as pessoas não sejam covardes"</h2>
+      <p>
+        Zagueiro se emociona ao citar mensagens de apoio que recebeu após falhar na virada sofrida pelo Brasil diante do Japão por 3 a 2.
+
+        Fabrício Bruno admitiu erros na derrota por 3 a 2 da seleção brasileira para o Japão. O zagueiro falhou em dois gols dos japoneses na virada desta terça-feira, em Tóquio. Ele se desculpou e afirmou que os lances não o definem como jogador.
+
+        "Um lance de infelicidade minha. Gostaria de pedir desculpas. Ressaltar que não me define como jogador. Toda a minha carreira até aqui, sempre passei por dificuldade. O pé de apoio ficou longe, acabei ficando sem força. Erro meu. Assumo responsabilidade e peço desculpa ao torcedor brasileiro."
+      </p>
+    </div>
+  </main>
+
+  <footer>Todos os direitos reservados © 2025 Central da Seleção</footer>
+</div>
+
+
+
+<script>
+
+// MENU
+menuToggle.addEventListener('click', () => dropdownMenu.classList.toggle('show-menu'));
+document.addEventListener('click', e => { if(!e.target.closest('.menu-container')) dropdownMenu.classList.remove('show-menu'); });
+
+// TEMA
+const savedTheme = localStorage.getItem("theme");
+if(savedTheme === "dark") { body.classList.add("dark-mode"); themeButton.textContent = "☀️"; }
+themeButton.addEventListener("click", () => {
+  const isDark = body.classList.toggle("dark-mode");
+  themeButton.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+</script>
+</body>
+</html>

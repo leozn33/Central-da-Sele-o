@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Central da Seleção - Troféus</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="menu-container">
+        <button class="menu-toggle">&#9776;</button>
+        <button id="toggle-theme">🌙</button>
+        <nav class="dropdown-menu" id="dropdownMenu">
+            <a href="noticias.html">Notícias</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="escalacao.html">Escalação</a>
+            <a href="trofeus.html">Troféus</a>
+        </nav>
+    </div>
+
+    <h1 class="logo">Central da <span>Seleção</span></h1>
+
+    <div class="foto">
+        <img src="fotos/Imagem-do-WhatsApp-de-2025-11-04-à(s)-13.png" alt="Logo da Seleção">
+    </div>
+</header>
+
+</header>
+
+<section class="trofeus-container">
+  <h2>Troféus da Seleção Brasileira</h2>
+
+  <h3>Mundiais</h3>
+  <table>
+    <tr>
+      <th>Competição</th>
+      <th>Vezes</th>
+      <th>Ano</th>
+    </tr>
+    <tr>
+      <td><img src="fotos/copa_do_mundo.png" width="40"> <strong>Copa do Mundo</strong></td>
+      <td>5</td>
+      <td>1958, 1962, 1970, 1994, 2002</td>
+    </tr>
+  </table>
+
+  <h3>Intercontinentais</h3>
+  <table>
+    <tr>
+      <th>Competição</th>
+      <th>Vezes</th>
+      <th>Ano</th>
+    </tr>
+    <tr>
+      <td><img src="fotos/copa_das_confederacoes.png" width="40"> <strong>Copa das Confederações</strong></td>
+      <td>4</td>
+      <td>1997, 2005, 2009, 2013</td>
+    </tr>
+    <tr>
+      <td><img src="fotos/campeonato_pan_americano.png" width="40"> <strong>Campeonato Pan-Americano</strong></td>
+      <td>2</td>
+      <td>1952, 1956</td>
+    </tr>
+  </table>
+
+  <h3>Continentais</h3>
+  <table>
+    <tr>
+      <th>Competição</th>
+      <th>Vezes</th>
+      <th>Ano</th>
+    </tr>
+    <tr>
+      <td><img src="fotos/copa_america.png" width="40"> <strong>Copa América</strong></td>
+      <td>9</td>
+      <td>1919, 1922, 1949, 1989, 1997, 1999, 2004, 2007, 2019</td>
+    </tr>
+  </table>
+
+  <h3>Seleção Olímpica</h3>
+  <table>
+    <tr>
+      <th>Competição</th>
+      <th>Vezes</th>
+      <th>Ano</th>
+    </tr>
+    <tr>
+      <td><img src="fotos/ouro.png" width="30"></td>
+      <td>2</td>
+      <td>2016, 2020</td>
+    </tr>
+    <tr>
+      <td><img src="fotos/prata.png" width="30"></td>
+      <td>3</td>
+      <td>1984, 1988, 2012</td>
+    </tr>
+    <tr>
+      <td><img src="fotos/bronze.png" width="30"></td>
+      <td>2</td>
+      <td>1996, 2008</td>
+    </tr>
+  </table>
+</section>
+
+<footer>Todos os direitos reservados © 2025 Na Rede Esportes</footer>
+
+<script>
+// ===== FUNÇÃO DE MODO ESCURO =====
+const toggleThemeBtn = document.getElementById('toggle-theme');
+
+// Função para aplicar o tema
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggleThemeBtn.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        toggleThemeBtn.textContent = '🌙';
+    }
+}
+
+// Verifica se já existe preferência salva
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    applyTheme(savedTheme);
+}
+
+// Ao clicar, alterna tema e salva no localStorage
+toggleThemeBtn.addEventListener('click', () => {
+    if (document.body.classList.contains('dark-mode')) {
+        applyTheme('light');
+        localStorage.setItem('theme', 'light');
+    } else {
+        applyTheme('dark');
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
+// ===== MENU =====
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    document.getElementById('dropdownMenu').classList.toggle('show-menu');
+});
+
+// ===== MENSAGEM DE BOAS-VINDAS =====
+window.addEventListener('load', () => {
+    const jaVisitou = localStorage.getItem('jaVisitou');
+    if (!jaVisitou) {
+        alert("Seja Bem-Vindo ao Central da Seleção, site direcionado para notícias da Seleção Brasileira.\n\nSite criado por Ayki Lins, Bruno Brito, Fabrício Do Carmo, João Victor Mendes e Leonardo Lima.");
+        localStorage.setItem('jaVisitou', 'true');
+    }
+});
+</script>
+</body>
+</html>

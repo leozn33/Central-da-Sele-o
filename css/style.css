@@ -1,0 +1,601 @@
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f9f9f9;
+  --text: #222;
+  --header-bg: #07a04d;
+  --header-text: white;
+  --logo-highlight: #ffdf00;
+  --dropdown-bg: white;
+  --dropdown-text: #222;
+  --dropdown-border: #eee;
+  --dropdown-hover: #f1f1f1;
+  --footer-bg: #07a04d;
+  --table-bg: white;
+  --table-text: black;
+  --table-header-bg: yellow;
+  --table-header-text: blue;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+#conteudo {
+  transition: filter 0.3s ease;
+}
+
+/* ================= HEADER ================= */
+.main-header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.logo span {
+  color: var(--logo-highlight);
+}
+
+.right {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--header-text);
+  min-width: 150px;
+  text-align: right;
+}
+
+.foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* ===== LOGO UNIFORME PARA TODAS AS PÁGINAS ===== */
+.foto img {
+  width: 150px;         /* largura fixa */
+  height: 80px;         /* altura fixa */
+  object-fit: contain;  /* mantém proporção sem cortar */
+  display: block;
+  border-radius: 6px;
+  margin: 0 auto;       /* centraliza */
+}
+
+/* RESPONSIVIDADE LOGO */
+@media (max-width: 768px) {
+  .foto img {
+    width: 120px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 480px) {
+  .foto img {
+    width: 100px;
+    height: 55px;
+  }
+}
+
+/* ================= MENU ================= */
+.menu-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: var(--header-text);
+  font-size: 26px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background: var(--dropdown-bg);
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--dropdown-text);
+  font-weight: bold;
+  border-bottom: 1px solid var(--dropdown-border);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background-color: var(--dropdown-hover);
+}
+
+.show-menu {
+  display: flex;
+}
+
+/* ================= BOTÃO TEMA ================= */
+#toggle-theme {
+  background: none;
+  border: none;
+  color: var(--header-text);
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+#toggle-theme:hover {
+  transform: rotate(20deg);
+}
+
+/* ================= BOTÃO LOGOUT ================= */
+#logout-btn {
+  color: red;
+  font-weight: bold;
+}
+#logout-btn:hover {
+  background-color: #ffe5e5;
+}
+
+/* ================= SEÇÃO TROFÉUS ================= */
+.trofeus-container {
+  min-height: calc(100vh - 100px);
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.trofeus-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.trofeus-container h3 {
+  background: green;
+  color: yellow;
+  padding: 5px;
+  margin: 30px auto 10px;
+  max-width: 800px;
+  border-radius: 6px;
+}
+
+.trofeus-container table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  border-collapse: collapse;
+}
+
+.trofeus-container th,
+.trofeus-container td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.trofeus-container th {
+  background: var(--table-header-bg);
+  color: var(--table-header-text);
+}
+
+.trofeus-container img {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* ================= SEÇÃO NOTÍCIAS ================= */
+.noticias-container {
+  padding: 40px 20px 100px;
+  font-size: 18px;
+  color: #000;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.noticias-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #07a04d;
+}
+
+.noticia-destaque {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 35px;
+}
+
+.noticia-destaque img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+.conteudo-destaque {
+  padding: 20px;
+}
+
+.conteudo-destaque h3 {
+  font-size: 24px;
+  color: #07a04d;
+  margin-bottom: 10px;
+}
+
+.conteudo-destaque p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.noticias-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.noticia {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.noticia:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.noticia img {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.noticia-content {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.noticia h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #07a04d;
+}
+
+.noticia p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* ================= ESCALAÇÃO ================= */
+.escala-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.field {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  height: 600px;
+  background: #2bbd4a;
+  border: 4px solid white;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.field::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.center-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: white;
+  transform: translateY(-50%);
+}
+
+.penalty-left {
+  position: absolute;
+  left: 50%;
+  top: 87%;
+  width: 200px;
+  height: 80px;
+  border: 2px solid white;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.penalty-right {
+  position: absolute;
+  right: 21%;
+  bottom: 87%;
+  width: 200px;
+  height: 80px;
+  border: 2px solid white;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+/* Jogadores */
+.player {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  object-position: top;
+}
+
+.name-tag {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.position-tag {
+  position: absolute;
+  top: 95px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  font-size: 12px;
+}
+
+/* Lista de convocados */
+.convocados {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.convocados div {
+  flex: 1 1 200px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.convocados h2 {
+  color: #07a04d;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #07a04d;
+  display: inline-block;
+}
+
+/* ================= SOBRE ================= */
+.sobre {
+  text-align: center;
+  max-width: 800px;
+  margin: 120px auto 80px;
+  padding: 20px;
+}
+
+.sobre h2 {
+  font-size: 28px;
+  color: #07a04d;
+  margin-bottom: 20px;
+}
+
+.sobre p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.sobre .logo {
+  display: block;
+  font-size: 36px;
+  margin: 0 auto;
+  color: #07a04d;
+}
+
+.sobre .logo span {
+  color: #ffdf00;
+}
+
+/* Imagem sobre */
+.sobre-img {
+  display: block;
+  margin: 20px auto 0;
+  max-width: 100%;
+  height: 200px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  background-color: var(--footer-bg);
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+/* ================= DARK MODE ================= */
+body.dark-mode {
+  --bg: #121212;
+  --text: #f5f5f5;
+  --header-bg: #034d25;
+  --header-text: #f5f5f5;
+  --logo-highlight: #ffdf00;
+  --dropdown-bg: #222;
+  --dropdown-text: #f5f5f5;
+  --dropdown-border: #333;
+  --dropdown-hover: #333;
+  --footer-bg: #034d25;
+  --table-bg: #1e1e1e;
+  --table-text: #f5f5f5;
+  --table-header-bg: #333;
+  --table-header-text: #fff;
+}
+
+body.dark-mode .trofeus-container table,
+body.dark-mode .trofeus-container td {
+  background: var(--table-bg);
+  color: var(--table-text);
+}
+
+body.dark-mode .trofeus-container th {
+  background: var(--table-header-bg);
+  color: var(--table-header-text);
+}
+
+body.dark-mode .sobre h2 {
+  color: #00ff88;
+}
+
+body.dark-mode .sobre p {
+  color: #e0e0e0;
+}
+
+body.dark-mode footer {
+  background-color: var(--footer-bg);
+}
+
+/* ================= RESPONSIVIDADE ================= */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dropdown-menu a {
+    border: none;
+    padding: 8px;
+  }
+
+  .noticia {
+    flex-direction: column;
+  }
+
+  .noticia img {
+    width: 100%;
+    height: auto;
+  }
+
+  .noticia-content {
+    padding: 15px;
+  }
+
+  .noticia-destaque img {
+    height: 250px;
+  }
+
+  .sobre h2 {
+    font-size: 24px;
+  }
+
+  .sobre p {
+    font-size: 16px;
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 18px;
+  }
+  .menu-toggle {
+    font-size: 22px;
+  }
+  .sobre .logo {
+    font-size: 28px;
+  }
+}
