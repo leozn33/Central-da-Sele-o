@@ -1,2 +1,2 @@
-# Central-da-Sele-o
+# Central-da-Selecao
 Site informativo sobre a Seleção Brasileira.
